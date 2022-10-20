@@ -1,0 +1,21 @@
+#square {
+    width: 465px;
+    height: 550px;
+    background: rgb(226, 226, 226);
+    text-align : center;
+    margin-left:700px;
+    margin-top:100px;
+    border-radius: 4px;
+}
+
+#hr1 {
+    width : 40%;
+}
+
+#hr2 {
+    width : 50%;
+}
+
+#hr3 {
+    width : 60%;
+}
