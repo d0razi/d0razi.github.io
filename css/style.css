@@ -3,7 +3,8 @@
     height: 550px;
     background: rgb(226, 226, 226);
     text-align : center;
-    margin-left:700px;
+    margin-left:auto;
+    margin-right: auto;
     margin-top:100px;
     border-radius: 4px;
 }
@@ -21,4 +22,8 @@
 #hr3 {
     opacity: 0.4;
     width : 60%;
+}
+
+body {
+    background-image: url("../main_logo/sudo.jpeg");
 }
