@@ -11,6 +11,7 @@ body {
     width: 700px;
     height:400px;
     background: rgb(226, 226, 226);
+    text-align: left    ;
     margin-left:auto;
     margin-right: auto;
     margin-top:100px;
@@ -45,7 +46,7 @@ h1 {
     }
     
     .profile_img {
-        margin: 0 auto;
+        float: none;
         width:250px; 
         height:250px;
         border-radius: 100px;
