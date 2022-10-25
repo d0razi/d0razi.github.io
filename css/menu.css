@@ -5,7 +5,14 @@ body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
+  font-family: 'KITA';
 }
+
+@font-face {
+  font-family: 'KITA';
+  src: url(/KITA.otf);
+}
+
 a {
   text-decoration: none;
   color: #1E1E23; /* 글자색 */
