@@ -43,6 +43,7 @@ h1 {
         margin-right: auto;
         margin-top:-5vh;
         border-radius: 4px;
+        overflow: hidden;
     }
     
     .profile_img {
