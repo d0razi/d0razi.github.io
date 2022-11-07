@@ -35,13 +35,13 @@ h1 {
 @media all and (max-width:695px) {
     #square {
         width: 100vw;
-        height: 150vh;
+        height: 110vh;
         background: rgb(226, 226, 226);
         line-height: 7vh;
         text-align : center;
         margin-left:auto;
         margin-right: auto;
-        margin-top:-5vh;
+        margin-top: -3vh;
         border-radius: 4px;
         overflow: hidden;
     }
