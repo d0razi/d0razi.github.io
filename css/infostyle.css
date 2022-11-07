@@ -19,6 +19,10 @@ body {
     overflow: auto;
 }
 
+#info_style {
+    text-align : center;
+}
+
 h1 {
     text-align : left;
 }
@@ -54,6 +58,11 @@ h1 {
     }
     .main_content {
         margin: 0 auto;
+    }
+    
+    #info_style {
+        text-align : center; 
+        line-height: 15vh;
     }
 }
 
