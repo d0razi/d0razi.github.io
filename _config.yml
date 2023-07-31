@@ -13,46 +13,43 @@ baseurl: ""
 lang: en
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: America/Denver
+timezone: Asia/Seoul
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 44 collective # the main title
+title: d0razi # the main title
 
-tagline: ovh / 342 / 258 # it will display as the sub-title
+tagline: I love Kernel # it will display as the sub-title
 
-description: Professional procrastinator, part time developer, full time coin collector.
+description: InfoSec
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: "https://44.is-a.dev"
+url: "https://d0razi.github.io/"
 
 github:
-  username: 9xN # change to your github username
-
-twitter:
-  username: 44ovh # change to your twitter username
+  username: d0razi # change to your github username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: 44 collective
-  email: 0@fbi.ac # change to your email address
+  name: d0razi
+  email: usungmo0317@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://github.com/9xN # change to your github homepage
-    - https://twitter.com/44ovh # change to your twitter homepage
+    - https://github.com/d0razi # change to your github homepage
+    # - https://twitter.com/44ovh # change to your twitter homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-google_site_verification: bNOUtIEvtNjkHKan_PJtlwfDCZ5IOqHTzswm5tVmMC4 # fill in to your verification string
+google_site_verification:  # fill in to your verification string
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id: G-5DSG2G0WM5 # fill in your Google Analytics ID
+  id: # fill in your Google Analytics ID
 
 # Prefer color scheme setting.
 #
@@ -75,7 +72,7 @@ theme_mode: # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: /assets/img/media/avatar.jpg
+avatar: /assets/img/media/profile.jpg
 
 # boolean type, the global switch for TOC in posts.
 toc: true
