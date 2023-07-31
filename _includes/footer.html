@@ -5,11 +5,11 @@
     <div class="d-flex justify-content-center align-items-center text-muted mx-md-3">
       <p>
         {%- capture _platform -%}
-          <a href="https://github.com/9xN" target="_blank" rel="noopener">My Github</a>
+          <a href="https://github.com/d0razi" target="_blank" rel="noopener">My Github</a>
         {%- endcapture -%}
 
         {%- capture _theme -%}
-          <a href="https://github.com/9xN/9xN.github.io" target="_blank" rel="noopener">Site Source Code</a>
+          <a href="https://github.com/d0razi/d0razi.github.io" target="_blank" rel="noopener">Site Source Code</a>
         {%- endcapture -%}
 
         {{ site.data.locales[include.lang].meta | replace: ':PLATFORM', _platform | replace: ':THEME', _theme }}
