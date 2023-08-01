@@ -3,7 +3,6 @@
 icon: fas fa-info-circle
 order: 4
 ---
-![](/assets/img/media/avatar.jpg){: width="300" height="300" }
 
 ---
 ```
