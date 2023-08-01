@@ -5,7 +5,7 @@ order: 4
 ---
 
 ---
-```
+```zsh
 d0razi@macbookpro:~ $ neofetch
                     'c.          d0razi@macbookpro.local
                  ,xNMM.          -------------
