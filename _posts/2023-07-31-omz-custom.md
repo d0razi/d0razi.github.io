@@ -41,7 +41,7 @@ vi ~/.oh-my-zsh/themes/agnoster.zsh-theme
 ```
 
 위 명령어를 사용하고 맨 밑에 아래 코드를 붙여넣기 하시면 멀티라인이 설정됩니다.
-[Untitled](/_posts/mutiline.md)
+<!-- [Untitled](/_posts/mutiline.md) -->
 
 # 플러그인
 
