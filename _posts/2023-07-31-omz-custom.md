@@ -41,8 +41,37 @@ vi ~/.oh-my-zsh/themes/agnoster.zsh-theme
 ```
 
 위 명령어를 사용하고 맨 밑에 아래 코드를 붙여넣기 하시면 멀티라인이 설정됩니다.
-[링크](https://docs.google.com/document/d/1vXuXxNJFo1HOv3m4ujYJMEzex12hxe4fCC5CQb_6tD8/edit?usp=sharing)
+{% raw %}
+```bash
+	prompt_newline() {
+  if [[ -n $CURRENT_BG ]]; then
+    echo -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
+%(?.%F{$CURRENT_BG}.%F{red})❯%f"
 
+  else
+    echo -n "%{%k%}"
+  fi
+
+  echo -n "%{%f%}"
+  CURRENT_BG=''
+}
+
+## Main prompt
+build_prompt() {
+  RETVAL=$?
+  prompt_status
+  prompt_virtualenv
+  prompt_aws
+  prompt_context
+  prompt_dir
+  prompt_git
+  prompt_bzr
+  prompt_hg
+  prompt_newline
+  prompt_end
+}
+```
+{% endraw %}
 # 플러그인
 
 ## **Auto Suggestions**
