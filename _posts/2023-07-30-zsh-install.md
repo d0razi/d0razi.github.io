@@ -22,7 +22,7 @@ sudo apt install zsh
 which zsh
 ```
 
-![Untitled](/assets/img/media/post_img/zsh-install/Untitled.png)
+![Untitled](/assets/img/media/post_img/setting&custom/zsh-install/Untitled.png)
 
 아래 명령어로 기본 쉘을 **bash**에서 **zsh**로 변경해줍니다.
 
@@ -44,6 +44,6 @@ sudo apt install git wget curl
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
 
-![Untitled](/assets/img/media/post_img/zsh-install/Untitled%201.png)
+![Untitled](/assets/img/media/post_img/setting&custom/zsh-install/Untitled%201.png)
 
 설치가 잘 된 모습입니다.

@@ -15,8 +15,8 @@ cmd 창에서 아래 명령어를 사용하면 됩니다.
 ubuntu config --default-user root
 ```
 
-![Untitled](/assets/img/media/post_img/auto_root_login/Untitled.png)
+![Untitled](/assets/img/media/post_img/setting&custom/auto_root_login/Untitled.png)
 
-![루트로 로그인 되는 모습~](/assets/img/media/post_img/auto_root_login/Untitled%201.png)
+![루트로 로그인 되는 모습~](/assets/img/media/post_img/setting&custom/auto_root_login/Untitled%201.png)
 
 루트로 로그인 되는 모습~

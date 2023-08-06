@@ -24,7 +24,7 @@ vi ~/.zshrc
 ZSH_THEME="agnoster"
 ```
 
-![Untitled](/assets/img/media/post_img/omz-custom/Untitled.png)
+![Untitled](/assets/img/media/post_img/setting&custom/omz-custom/Untitled.png)
 
 **robbyrussell**을  **agnoster**로 변경해주시면 됩니다.
 
@@ -78,7 +78,7 @@ build_prompt() {
 
 터미널의 입력 history를 기반으로 추천을 해주는 플러그인입니다. 
 
-![Untitled](/assets/img/media/post_img/omz-custom/Untitled%201.png)
+![Untitled](/assets/img/media/post_img/setting&custom/omz-custom/Untitled%201.png)
 
 위와 같이 뜰때 오른쪽 방향키를 눌러주면 완성이 됩니다.
 
@@ -90,13 +90,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 1. ~/.zshrc 파일에 plugin 리스트에 zsh-autosuggestions를 추가
 
-![Untitled](/assets/img/media/post_img/omz-custom/Untitled%202.png)
+![Untitled](/assets/img/media/post_img/setting&custom/omz-custom/Untitled%202.png)
 
 ## **Syntax Highlighting**
 
 zsh에서 해당 command가 존재하는 명령어인지 색상을 통해 알려줍니다.
 
-![Untitled](/assets/img/media/post_img/omz-custom/Untitled%203.png)
+![Untitled](/assets/img/media/post_img/setting&custom/omz-custom/Untitled%203.png)
 
 1. 설치
 
