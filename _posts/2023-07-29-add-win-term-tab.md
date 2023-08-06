@@ -5,7 +5,7 @@ date: 2023-07-29 19:00
 categories: [OS, Window]
 tags: [window]
 toc: false
-image: /assets/img/media/window.jpg
+image: /assets/img/media/banner/window.jpg
 ---
 
 uuidgen 명령어 입력 후 결과값을 복사합니다.

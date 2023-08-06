@@ -5,7 +5,7 @@ date: 2023-07-30 19:00
 categories: [OS, Linux]
 tags: [linux]
 toc: false
-image: /assets/img/media/linux.jpg
+image: /assets/img/media/banner/linux.jpg
 ---
 
 # ZSH 설치하기

@@ -5,7 +5,7 @@ date: 2023-07-28 19:00
 categories: [OS, Window]
 tags: [window]
 toc: false
-image: /assets/img/media/window.jpg
+image: /assets/img/media/banner/window.jpg
 ---
 
 # wsl 우분투에서 root계정 자동 로그인하게 하기

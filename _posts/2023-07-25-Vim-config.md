@@ -5,7 +5,7 @@ date: 2023-07-25 19:00
 categories: [OS, Linux]
 tags: [linux]
 toc: false
-image: /assets/img/media/linux.jpg
+image: /assets/img/media/banner/linux.jpg
 ---
 
 ```bash
