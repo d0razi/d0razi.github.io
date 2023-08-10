@@ -1,7 +1,7 @@
 ---
 title: "[Dreamhack] basic_exploitation_001 Write up"
 author: d0razi
-date: 2023-08-09 12:30
+date: 2023-08-10 12:30
 categories: [InfoSec, Pwn]
 tags: [linux, Dreamhack]
 toc: false
