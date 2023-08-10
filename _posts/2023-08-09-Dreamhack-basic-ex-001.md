@@ -99,5 +99,3 @@ buf에서 ebp만큼 0x80 떨어져있기 때문에 더미데이터를 0x80만큼
 ![Untitled](/assets/img/media/post_img/dreamhack/basic_ex_001/Untitled%202.png)
 
 0x80만큼 채웠으니 SFP만큼 0x4만큼 추가로 더미데이터를 채워주고 RET주소를 read_flag 주소로 조작해주면 성공한다.
-
-![Untitled](/assets/img/media/post_img/dreamhack/basic_ex_001/Untitled%203.png)
