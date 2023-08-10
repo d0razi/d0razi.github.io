@@ -3,7 +3,7 @@ title: "[pwn.college] ROP Level2.0 Write up"
 author: d0razi
 date: 2023-08-07 16:00
 categories: [InfoSec, Pwn]
-tags: [pwnable, linux, pwn.college]
+tags: [linux, pwn.college]
 toc: false
 image: /assets/img/media/banner/pwn-college.png
 ---
