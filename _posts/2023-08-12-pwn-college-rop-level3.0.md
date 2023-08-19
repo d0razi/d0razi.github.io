@@ -7,7 +7,7 @@ tags: [linux, pwn.college]
 image: /assets/img/media/banner/pwn-college.png
 ---
 
-# 문제 분석
+## 문제 분석
 
 ![Untitled](/assets/img/media/post_img/pwn/pwn.college/rop/level3.0/Untitled.png)
 
@@ -23,7 +23,7 @@ image: /assets/img/media/banner/pwn-college.png
 1. 버퍼 채우기(120)
 2. [pop rdi] + [stage_number] + [function address] 이런 순서로 1부터 5까지 페이로드를 작성해주기
 
-## Gadget 구하기
+### Gadget 구하기
 
 ![Untitled](/assets/img/media/post_img/pwn/pwn.college/rop/level3.0/Untitled%201.png)
 
@@ -31,7 +31,7 @@ image: /assets/img/media/banner/pwn-college.png
 ROPgadget --binary /challenge/babyrop_level3.0 | grep "pop rdi"
 ```
 
-# Exploit code
+## Exploit code
 
 ```python
 from pwn import *
