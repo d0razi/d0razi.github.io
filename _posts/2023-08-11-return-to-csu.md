@@ -4,7 +4,6 @@ author: d0razi
 date: 2023-08-11 19:00
 categories: [InfoSec, Pwn]
 tags: [linux]
-toc: false
 image: /assets/img/media/banner/pwnable.jpg
 ---
 

@@ -4,7 +4,6 @@ author: d0razi
 date: 2023-08-07 16:00
 categories: [InfoSec, Pwn]
 tags: [linux, pwn.college]
-toc: false
 image: /assets/img/media/banner/pwn-college.png
 ---
 

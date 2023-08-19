@@ -4,7 +4,6 @@ author: d0razi
 date: 2023-08-16 10:45
 categories: [InfoSec, Pwn]
 tags: [linux, Dreamhack]
-toc: false
 image: /assets/img/media/banner/dreamhack.jpg
 ---
 

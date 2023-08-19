@@ -4,7 +4,6 @@ author: d0razi
 date: 2023-07-29 19:00
 categories: [OS, Window]
 tags: [window]
-toc: false
 image: /assets/img/media/banner/window.jpg
 ---
 
