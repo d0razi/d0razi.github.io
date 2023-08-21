@@ -14,7 +14,7 @@ image: /assets/img/media/banner/pwn-college.png
 #### 복사되는 사이즈
 입력한 값이 얼마나 복사되는지 알기위해 `memcpy` 함수에 bp를 걸고 rdx 레지스터를 확인하겠습니다.
 ![](https://i.imgur.com/62Ah1vz.png)
-복사 되는 크기 : 0x18
+복사 되는 크기 : 0x18
 #### 복사되는 위치
 `memcpy` 함수 다음 부분에 bp를 설정해서 스택 어디에 위치하는지 확인합니다.
 ![](https://i.imgur.com/XKKQckn.png)
