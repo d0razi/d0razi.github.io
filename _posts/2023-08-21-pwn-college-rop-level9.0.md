@@ -88,7 +88,6 @@ rbx - rbp - rdi - rsi - rdx - [호출할 함수]
 ## Payload
 
 ```python
-
 from pwn import *
 
 p = process("/challenge/babyrop_level9.0")
