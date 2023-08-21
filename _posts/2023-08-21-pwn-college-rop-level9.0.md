@@ -80,9 +80,9 @@ image: /assets/img/media/banner/pwn-college.png
 
 ### csu
 ![](https://i.imgur.com/pJMOLoQ.png)
-빨간색 : csu_init
-하늘색 : csu_call
-**입력 순서**
+빨간색 : csu_init  
+하늘색 : csu_call  
+**입력 순서**  
 rbx - rbp - rdi - rsi - rdx - [호출할 함수]
 
 ## Payload
