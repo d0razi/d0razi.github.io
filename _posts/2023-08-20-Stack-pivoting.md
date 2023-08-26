@@ -3,7 +3,7 @@ title: "Stack pivoting"
 author: d0razi
 date: 2023-08-20 19:00
 categories: [InfoSec, Pwn]
-tags: [linux, Exploit tech]
+tags: [linux, Exploit Tech]
 image: /assets/img/media/banner/pwnable.jpg
 ---
 
