@@ -3,7 +3,7 @@ title: "RTC [Return to CSU]"
 author: d0razi
 date: 2023-08-11 19:00
 categories: [InfoSec, Pwn]
-tags: [linux]
+tags: [linux, Exploit Tech]
 image: /assets/img/media/banner/pwnable.jpg
 ---
 
