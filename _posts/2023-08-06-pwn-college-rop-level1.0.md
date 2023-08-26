@@ -3,7 +3,7 @@ title: "[pwn.college] ROP Level1.0 Write up"
 author: d0razi
 date: 2023-08-06 20:30
 categories: [InfoSec, Pwn]
-tags: [linux, pwn.college]
+tags: [Write up, pwn.college]
 image: /assets/img/media/banner/pwn-college.png
 ---
 

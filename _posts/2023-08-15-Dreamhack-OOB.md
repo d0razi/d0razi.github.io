@@ -3,7 +3,7 @@ title: "[Dreamhack] out_of_bound Write up"
 author: d0razi
 date: 2023-08-15 16:30
 categories: [InfoSec, Pwn]
-tags: [linux, Dreamhack]
+tags: [Write up, Dreamhack]
 image: /assets/img/media/banner/dreamhack.jpg
 ---
 

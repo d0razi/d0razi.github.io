@@ -3,7 +3,7 @@ title: "[Dreamhack] rop Write up"
 author: d0razi
 date: 2023-08-19 10:45
 categories: [InfoSec, Pwn]
-tags: [linux, Dreamhack]
+tags: [Write up, Dreamhack]
 image: /assets/img/media/banner/dreamhack.jpg
 ---
 

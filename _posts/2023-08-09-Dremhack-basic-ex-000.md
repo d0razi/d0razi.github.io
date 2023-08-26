@@ -3,7 +3,7 @@ title: "[Dreamhack] basic_exploitation_000 Write up"
 author: d0razi
 date: 2023-08-09 12:30
 categories: [InfoSec, Pwn]
-tags: [linux, Dreamhack]
+tags: [Write up, Dreamhack]
 image: /assets/img/media/banner/dreamhack.jpg
 ---
 
