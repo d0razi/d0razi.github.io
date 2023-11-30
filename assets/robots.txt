@@ -5,6 +5,8 @@ permalink: /robots.txt
 
 User-agent: *
 
+Allow: /
+
 Disallow: /norobots/
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
