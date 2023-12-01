@@ -4,7 +4,7 @@ author: d0razi
 date: 2023-08-18 10:45
 categories: [InfoSec, Pwn]
 tags: [Write up, Dreamhack]
-image: https://imgur.com/Hk6noOA
+image: /assets/img/media/banner/dreamhack.jpg
 ---
 
 ## 문제 분석
