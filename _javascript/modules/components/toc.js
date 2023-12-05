@@ -20,7 +20,7 @@ export function toc() {
       contentSelector: '.post-content',
       ignoreSelector: '[data-toc-skip]',
       headingSelector: 'h1, h2, h3',
-      orderedList: false,
+      orderedList: true,
       scrollSmooth: false
     });
   }
