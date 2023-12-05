@@ -1,5 +1,5 @@
 ---
-title: "Stack pivoting"
+title: "Tcache Poisoning"
 author: d0razi
 date: 2023-12-05 13:00
 categories: [InfoSec, Pwn]
