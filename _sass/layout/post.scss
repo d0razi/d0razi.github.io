@@ -316,10 +316,21 @@ h1 + .post-meta {
       }
     }
 
+    // ul {
+    //   a {
+    //     padding-left: 2rem;
+    //   }
+    // }
     ul {
-      a {
-        padding-left: 2rem;
-      }
+        a {
+          padding-left: 2rem;
+        }
+  
+        ul {
+          a {
+            padding-left: 3rem;
+          }
+        }
     }
   }
 }
