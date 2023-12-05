@@ -48,10 +48,10 @@ got_overwrite를 해서 system함수를 호출하겠습니다.
 
 익스플로잇 시나리오
 
-1. `**puts(read_got)` :** libc_base를 leak하기 위해 puts함수를 이용해서 read함수의 got를 출력해줍니다.
-2. `**read(0, bss, 8)` :** read 함수로 bss영역에 `/bin/sh\x00`을 입력해줍니다.
-3. `**read(0, puts_got, 8)**` : read 함수로 got_overwrite을 진행합니다.
-4. `**puts(bss)**` : got_overwrite이 완료된 puts 함수를 bss영역의 주소를 인자로 전달해주고 호출해줍니다.
+1. **`puts(read_got)`** : libc_base를 leak하기 위해 puts함수를 이용해서 read함수의 got를 출력해줍니다.
+2. **`read(0, bss, 8)`** : read 함수로 bss영역에 `/bin/sh\x00`을 입력해줍니다.
+3. **`read(0, puts_got, 8)`** : read 함수로 got_overwrite을 진행합니다.
+4. **`puts(bss)`** : got_overwrite이 완료된 puts 함수를 bss영역의 주소를 인자로 전달해주고 호출해줍니다.
 
 ## 최종 코드
 
