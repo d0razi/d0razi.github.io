@@ -7,6 +7,8 @@ tags: [Write up, pwn.college]
 image: /assets/img/media/banner/pwn-college.png
 ---
 
+# 문제 분석
+
 ## **문제 분석**
 
 ![Untitled](/assets/img/media/post_img/pwn/pwn.college/rop/level10.1/Untitled.png)
