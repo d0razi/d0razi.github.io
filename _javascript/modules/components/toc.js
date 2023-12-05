@@ -19,8 +19,8 @@ export function toc() {
       tocSelector: '#toc',
       contentSelector: '.post-content',
       ignoreSelector: '[data-toc-skip]',
-      headingSelector: 'h1, h2',
-      orderedList: true,
+      headingSelector: 'h1, h2, h3',
+      orderedList: false,
       scrollSmooth: false
     });
   }
