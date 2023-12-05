@@ -1,6 +1,20 @@
-{% assign enable_toc = false %}
+<!-- {% assign enable_toc = false %}
 {% if site.toc and page.toc %}
   {% if page.content contains '<h1' or page.content contains '<h2' %}
+    {% assign enable_toc = true %}
+  {% endif %}
+{% endif %}
+
+{% if enable_toc %}
+  <div id="toc-wrapper" class="ps-0 pe-4 mb-5">
+    <div class="panel-heading ps-3 pt-2 mb-2">{{- site.data.locales[include.lang].panel.toc -}}</div>
+    <nav id="toc"></nav>
+  </div>
+{% endif %} -->
+
+{% assign enable_toc = false %}
+{% if site.toc and page.toc %}
+  {% if page.content contains '<h1' or page.content contains '<h2' or page.content contains '<h3' or page.content contains '<h4' or page.content contains '<h5' or page.content contains '<h6' %}
     {% assign enable_toc = true %}
   {% endif %}
 {% endif %}
