@@ -20,13 +20,13 @@ void init() {
 }
 
 int main() {
-	long addr;
-	long data;
-	int idx;
+    long addr;
+    long data;
+    int idx;
 
-	init();
+    init();
 
-	printf("stdout: %p\n", stdout);
+    printf("stdout: %p\n", stdout);
     while (1) {
 	    printf("> ");
 	    scanf("%d", &idx);
@@ -40,9 +40,9 @@ int main() {
 		        break;
 		    default:
 		        return 0;
-		}
-	}
-	return 0;
+	    }
+    }
+    return 0;
 }
 ```
 
