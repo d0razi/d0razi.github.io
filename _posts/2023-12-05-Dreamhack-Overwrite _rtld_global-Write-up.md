@@ -28,17 +28,17 @@ int main() {
 
     printf("stdout: %p\n", stdout);
     while (1) {
-	    printf("> ");
-	    scanf("%d", &idx);
-	    switch (idx) {
-		    case 1:
-		        printf("addr: ");
-		        scanf("%ld", &addr);
-		        printf("data: ");
-		        scanf("%ld", &data);
-		        *(long long *)addr = data;
-		        break;
-		    default:
+        printf("> ");
+        scanf("%d", &idx);
+        switch (idx) {
+            case 1:
+                printf("addr: ");
+                scanf("%ld", &addr);
+                printf("data: ");
+                scanf("%ld", &data);
+                *(long long *)addr = data;
+                break;
+            default:
 		        return 0;
 	    }
     }
