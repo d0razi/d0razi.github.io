@@ -27,7 +27,7 @@ int main() {
 	init();
 
 	printf("stdout: %p\n", stdout);
-	while (1) {
+    while (1) {
 	    printf("> ");
 	    scanf("%d", &idx);
 	    switch (idx) {
