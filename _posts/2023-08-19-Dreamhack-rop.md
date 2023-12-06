@@ -17,7 +17,7 @@ image: /assets/img/media/banner/dreamhack.jpg
 #include <unistd.h>
 
 int main() {
-	char buf[0x30];
+  char buf[0x30];
 
   setvbuf(stdin, 0, _IONBF, 0);
   setvbuf(stdout, 0, _IONBF, 0);
