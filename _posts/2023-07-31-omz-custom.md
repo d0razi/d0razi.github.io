@@ -3,7 +3,7 @@ title: "OMZ(Oh My ZSH) 커스텀(테마, 플러그인)"
 author: d0razi
 date: 2023-07-31 19:00
 categories: [OS, Linux]
-tags: [linux]
+tags: [linux, Set up]
 image: /assets/img/media/banner/linux.jpg
 ---
 
@@ -116,9 +116,11 @@ echo "source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-high
 터미널에서 빠른 퍼지 파일 검색을 해주는 유틸리티입니다.
 
 ```bash
-$ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-$ cd ~/.fzf/
-$ ./install
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+```
+
+```bash
+$ .fzf/install
 ```
 
 컨트롤 T를 누르고 원하는 파일명을 검색하시면 됩니다.

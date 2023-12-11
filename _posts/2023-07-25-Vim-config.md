@@ -3,7 +3,7 @@ title: "Vim 옵션 설정"
 author: d0razi
 date: 2023-07-25 19:00
 categories: [OS, Linux]
-tags: [linux]
+tags: [linux, Set up]
 image: /assets/img/media/banner/linux.jpg
 ---
 

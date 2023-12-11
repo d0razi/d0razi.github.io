@@ -3,7 +3,7 @@ title: "우분투에 ZSH(oh my zsh) 설치하기"
 author: d0razi
 date: 2023-07-30 19:00
 categories: [OS, Linux]
-tags: [linux]
+tags: [linux, Set up]
 image: /assets/img/media/banner/linux.jpg
 ---
 
