@@ -16,11 +16,12 @@ image: /assets/img/media/banner/pwnable.jpg
 ```bash
 sudo apt install build-essential make
 ```
+
 ## Simple Linux Kernel Module
 * 아래 코드는 간단한 **Kernel Module** 코드입니다.
-	* init_module( ) 함수는 Module이 Kernel에 삽입될 때 동작하는 코드입니다.
-	* cleanup_module( ) 함수는 Module이 Kernel에서 제거될 때 동작하는 코드입니다.
-	* 해당 코드에서 printk( ) 함수를 이용하여 Module이 삽입, 제거될 때 메시지를 출력합니다.
+    * init_module( ) 함수는 Module이 Kernel에 삽입될 때 동작하는 코드입니다.
+    * cleanup_module( ) 함수는 Module이 Kernel에서 제거될 때 동작하는 코드입니다.
+    * 해당 코드에서 printk( ) 함수를 이용하여 Module이 삽입, 제거될 때 메시지를 출력합니다.
 
 **sample.c**
 ```c
@@ -39,19 +40,20 @@ void cleanup_module(void) {
 
 * 아래와 같이 **Makefile**을 이용하여 **Module**을 빌드 할 수 있습니다.
 
+{% raw %}
 **Makefile**
 ```Makefile
 obj-m += sample.o
 
 all:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 
 clean:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
 ```
-
+{% endraw %}
 * 아래와 같이 **make**를 실행하면 **Kernel module**인 **".ko"** 확장자를 가진 파일이 생성됩니다.
-	* Kernel module : sample.ko
+    * Kernel module : sample.ko
 
 **make**
 ```bash
@@ -95,7 +97,7 @@ sample                 16384  0
 ```
 
 * **dmesg** 명령어를 이용하여 **Module**에서 출력하는 메시지를 확인 할 수 있습니다.
-	* "sample.ko" Module이 Kernel에 삽입된 후 "Hello world - Lazenca0x0." 이라는 메시지가 출력되었습니다.
+    * "sample.ko" Module이 Kernel에 삽입된 후 "Hello world - Lazenca0x0." 이라는 메시지가 출력되었습니다.
 
 **dmesg | tail**
 ```bash
