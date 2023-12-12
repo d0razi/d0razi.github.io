@@ -42,7 +42,7 @@ void cleanup_module(void) {
 
 {% raw %}
 **Makefile**
-```Makefile
+```
 obj-m += sample.o
 
 all:
