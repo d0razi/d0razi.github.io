@@ -42,7 +42,7 @@ void cleanup_module(void) {
 
 {% raw %}
 **Makefile**
-```
+```bash
 obj-m += sample.o
 
 all:
