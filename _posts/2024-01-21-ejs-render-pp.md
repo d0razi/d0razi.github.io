@@ -18,24 +18,24 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get("/", (req, res) => {
-	res.render("index");
+    res.render("index");
 })
 
 app.get("/vuln", (req, res) => {
-	// simulate SSPP vulnerability
-	var a = req.query.a;
-	var b = req.query.b;
-	var c = req.query.c;
+    // simulate SSPP vulnerability
+    var a = req.query.a;
+    var b = req.query.b;
+    var c = req.query.c;
 
-	var obj = {};
-	obj[a][b] = c; // Hack!!
+    var obj = {};
+    obj[a][b] = c; // Hack!!
 
-	res.send("OK!");
+    res.send("OK!");
 })
 
 // Start app
 app.listen(port, () => {
-	console.log(`App listening on port ${port}`)
+    console.log(`App listening on port ${port}`)
 })
 ```
 
@@ -47,7 +47,7 @@ app.listen(port, () => {
 
 ```js
 app.get("/", (req, res) => {
-	res.render("index");
+    res.render("index");
 })
 ```
 
@@ -55,112 +55,112 @@ app.get("/", (req, res) => {
 `node_modules/ejs/ejs.js` 파일에 render 함수 코드입니다.
 ```js
 exports.render = function (template, d, o) {
-	var data = d || utils.createNullProtoObjWherePossible();
-	var opts = o || utils.createNullProtoObjWherePossible();
+    var data = d || utils.createNullProtoObjWherePossible();
+    var opts = o || utils.createNullProtoObjWherePossible();
 
-	// No options object -- if there are optiony names
-	// in the data, copy them to options
-	if (arguments.length == 2) {
-		utils.shallowCopyFromList(opts, data, _OPTS_PASSABLE_WITH_DATA);
-	}
+    // No options object -- if there are optiony names
+    // in the data, copy them to options
+    if (arguments.length == 2) {
+        utils.shallowCopyFromList(opts, data, _OPTS_PASSABLE_WITH_DATA);
+    }
 
-	return handleCache(opts, template)(data);
+    return handleCache(opts, template)(data);
 };
 ```
 
 각 함수들 코드를 오디팅 하던 중 handleCache() 함수에서 client와 escapeFuntion이 사용되는 Template을 호출하는 compile을 찾았습니다.
 ```js
 function handleCache(options, template) {
-	var func;
-	var filename = options.filename;
-	var hasTemplate = arguments.length > 1;
+    var func;
+    var filename = options.filename;
+    var hasTemplate = arguments.length > 1;
 
-	if (options.cache) {
-		if (!filename) {
-			throw new Error('cache option requires a filename');
-		}
-		func = exports.cache.get(filename);
-		if (func) {
-			return func;
-		}
-		if (!hasTemplate) {
-			template = fileLoader(filename).toString().replace(_BOM, '');
-		}
-	}
-	else if (!hasTemplate) {
-		// istanbul ignore if: should not happen at all
-		if (!filename) {
-		    throw new Error('Internal EJS error: no file name or template ' + 'provided');
-		}
-		template = fileLoader(filename).toString().replace(_BOM, '');
-	}
-	func = exports.compile(template, options);
-	if (options.cache) {
-		exports.cache.set(filename, func);
-	}
-	return func;
+    if (options.cache) {
+        if (!filename) {
+            throw new Error('cache option requires a filename');
+        }
+        func = exports.cache.get(filename);
+        if (func) {
+            return func;
+        }
+        if (!hasTemplate) {
+            template = fileLoader(filename).toString().replace(_BOM, '');
+        }
+    }
+    else if (!hasTemplate) {
+        // istanbul ignore if: should not happen at all
+        if (!filename) {
+            throw new Error('Internal EJS error: no file name or template ' + 'provided');
+        }
+        template = fileLoader(filename).toString().replace(_BOM, '');
+    }
+    func = exports.compile(template, options);
+    if (options.cache) {
+        exports.cache.set(filename, func);
+    }
+    return func;
 }
 ```
 
 ```js
 exports.compile = function compile(template, opts) {
 
-	var templ;
+    var templ;
 
-	// v1 compat
-	// 'scope' is 'context'
-	// FIXME: Remove this in a future version
-	if (opts && opts.scope) {
-		if (!scopeOptionWarned){
-			console.warn('`scope` option is deprecated and will be removed in EJS 3');
-			scopeOptionWarned = true;
-		}
-		if (!opts.context) {
-		opts.context = opts.scope;
-		}
-		delete opts.scope;
-	}
-	templ = new Template(template, opts);
-	return templ.compile();
+    // v1 compat
+    // 'scope' is 'context'
+    // FIXME: Remove this in a future version
+    if (opts && opts.scope) {
+        if (!scopeOptionWarned){
+            console.warn('`scope` option is deprecated and will be removed in EJS 3');
+            scopeOptionWarned = true;
+        }
+        if (!opts.context) {
+        opts.context = opts.scope;
+        }
+        delete opts.scope;
+    }
+    templ = new Template(template, opts);
+    return templ.compile();
 };
 ```
 
 ```js
 function Template(text, opts) {
-	opts = opts || utils.createNullProtoObjWherePossible();
-	var options = utils.createNullProtoObjWherePossible();
-	this.templateText = text;
-	/** @type {string | null} */
-	this.mode = null;
-	this.truncate = false;
-	this.currentLine = 1;
-	this.source = '';
-	options.client = opts.client || false;
-	options.escapeFunction = opts.escape || opts.escapeFunction || utils.escapeXML;
-	options.compileDebug = opts.compileDebug !== false;
-	options.debug = !!opts.debug;
-	options.filename = opts.filename;
-	options.openDelimiter = opts.openDelimiter || exports.openDelimiter || _DEFAULT_OPEN_DELIMITER;
-	options.closeDelimiter = opts.closeDelimiter || exports.closeDelimiter || _DEFAULT_CLOSE_DELIMITER;
-	options.delimiter = opts.delimiter || exports.delimiter || _DEFAULT_DELIMITER;
-	options.strict = opts.strict || false;
-	options.context = opts.context;
-	options.cache = opts.cache || false;
-	options.rmWhitespace = opts.rmWhitespace;
-	options.root = opts.root;
-	options.includer = opts.includer;
-	options.outputFunctionName = opts.outputFunctionName;
-	options.localsName = opts.localsName || exports.localsName || _DEFAULT_LOCALS_NAME;
-	options.views = opts.views;
-	options.async = opts.async;
-	options.destructuredLocals = opts.destructuredLocals;
-	options.legacyInclude = typeof opts.legacyInclude != 'undefined' ? !!opts.legacyInclude : true;
+    opts = opts || utils.createNullProtoObjWherePossible();
+    var options = utils.createNullProtoObjWherePossible();
+    this.templateText = text;
+    /** @type {string | null} */
+    this.mode = null;
+    this.truncate = false;
+    this.currentLine = 1;
+    this.source = '';
+    options.client = opts.client || false;
+    options.escapeFunction = opts.escape || opts.escapeFunction || utils.escapeXML;
+    options.compileDebug = opts.compileDebug !== false;
+    options.debug = !!opts.debug;
+    options.filename = opts.filename;
+    options.openDelimiter = opts.openDelimiter || exports.openDelimiter || _DEFAULT_OPEN_DELIMITER;
+    options.closeDelimiter = opts.closeDelimiter || exports.closeDelimiter || _DEFAULT_CLOSE_DELIMITER;
+    options.delimiter = opts.delimiter || exports.delimiter || _DEFAULT_DELIMITER;
+    options.strict = opts.strict || false;
+    options.context = opts.context;
+    options.cache = opts.cache || false;
+    options.rmWhitespace = opts.rmWhitespace;
+    options.root = opts.root;
+    options.includer = opts.includer;
+    options.outputFunctionName = opts.outputFunctionName;
+    options.localsName = opts.localsName || exports.localsName || _DEFAULT_LOCALS_NAME;
+    options.views = opts.views;
+    options.async = opts.async;
+    options.destructuredLocals = opts.destructuredLocals;
+    options.legacyInclude = typeof opts.legacyInclude != 'undefined' ? !!opts.legacyInclude : true;
 
     if (options.strict) {
-    	options._with = false;
+        options._with = false;
     }
     else {
-    	options._with = typeof opts._with != 'undefined' ? opts._with : true;
+        options._with = typeof opts._with != 'undefined' ? opts._with : true;
     }
 
     this.opts = options;
@@ -180,8 +180,8 @@ Template.prototype = {
     var open = utils.escapeRegExpChars(this.opts.openDelimiter);
     var close = utils.escapeRegExpChars(this.opts.closeDelimiter);
     str = str.replace(/%/g, delim)
-		.replace(/</g, open)
-		.replace(/>/g, close);
+        .replace(/</g, open)
+        .replace(/>/g, close);
     return new RegExp(str);
     },
 
@@ -206,31 +206,31 @@ Template.prototype = {
         '  var __output = "";\n' +
         '  function __append(s) { if (s !== undefined && s !== null) __output += s }\n';
         if (opts.outputFunctionName) {
-			if (!_JS_IDENTIFIER.test(opts.outputFunctionName)) {
-				throw new Error('outputFunctionName is not a valid JS identifier.');
-			}
-			prepended += '  var ' + opts.outputFunctionName + ' = __append;' + '\n';
+            if (!_JS_IDENTIFIER.test(opts.outputFunctionName)) {
+                throw new Error('outputFunctionName is not a valid JS identifier.');
+            }
+            prepended += '  var ' + opts.outputFunctionName + ' = __append;' + '\n';
         }
         if (opts.localsName && !_JS_IDENTIFIER.test(opts.localsName)) {
-        	throw new Error('localsName is not a valid JS identifier.');
+            throw new Error('localsName is not a valid JS identifier.');
         }
         if (opts.destructuredLocals && opts.destructuredLocals.length) {
-			var destructuring = '  var __locals = (' + opts.localsName + ' || {}),\n';
-			for (var i = 0; i < opts.destructuredLocals.length; i++) {
-				var name = opts.destructuredLocals[i];
-				if (!_JS_IDENTIFIER.test(name)) {
-					throw new Error('destructuredLocals[' + i + '] is not a valid JS identifier.');
-				}
-				if (i > 0) {
-					destructuring += ',\n  ';
-				}
-				destructuring += name + ' = __locals.' + name;
-			}
-			prepended += destructuring + ';\n';
+            var destructuring = '  var __locals = (' + opts.localsName + ' || {}),\n';
+            for (var i = 0; i < opts.destructuredLocals.length; i++) {
+                var name = opts.destructuredLocals[i];
+                if (!_JS_IDENTIFIER.test(name)) {
+                    throw new Error('destructuredLocals[' + i + '] is not a valid JS identifier.');
+                }
+                if (i > 0) {
+                    destructuring += ',\n  ';
+                }
+                destructuring += name + ' = __locals.' + name;
+            }
+            prepended += destructuring + ';\n';
         }
         if (opts._with !== false) {
-			prepended +=  '  with (' + opts.localsName + ' || {}) {' + '\n';
-			appended += '  }' + '\n';
+            prepended +=  '  with (' + opts.localsName + ' || {}) {' + '\n';
+            appended += '  }' + '\n';
         }
         appended += '  return __output;' + '\n';
         this.source = prepended + this.source + appended;
@@ -253,7 +253,7 @@ Template.prototype = {
     if (opts.client) {
         src = 'escapeFn = escapeFn || ' + escapeFn.toString() + ';' + '\n' + src;
         if (opts.compileDebug) {
-        	src = 'rethrow = rethrow || ' + rethrow.toString() + ';' + '\n' + src;
+            src = 'rethrow = rethrow || ' + rethrow.toString() + ';' + '\n' + src;
         }
     }
 
@@ -270,38 +270,38 @@ Template.prototype = {
 
     try {
         if (opts.async) {
-			// Have to use generated function for this, since in envs without support,
-			// it breaks in parsing
-			try {
-				ctor = (new Function('return (async function(){}).constructor;'))();
-			}
-			catch(e) {
-				if (e instanceof SyntaxError) {
-					throw new Error('This environment does not support async/await');
-				}
-				else {
-					throw e;
-				}
-			}
+            // Have to use generated function for this, since in envs without support,
+            // it breaks in parsing
+            try {
+                ctor = (new Function('return (async function(){}).constructor;'))();
+            }
+            catch(e) {
+                if (e instanceof SyntaxError) {
+                    throw new Error('This environment does not support async/await');
+                }
+                else {
+                    throw e;
+                }
+            }
         }
         else {
-        	ctor = Function;
+            ctor = Function;
         }
         fn = new ctor(opts.localsName + ', escapeFn, include, rethrow', src);
     }
     catch(e) {
         // istanbul ignore else
         if (e instanceof SyntaxError) {
-			if (opts.filename) {
-				e.message += ' in ' + opts.filename;
-			}
-			e.message += ' while compiling ejs\n\n';
-			e.message += 'If the above error is not helpful, you may want to try EJS-Lint:\n';
-			e.message += 'https://github.com/RyanZim/EJS-Lint';
-			if (!opts.async) {
-				e.message += '\n';
-				e.message += 'Or, if you meant to create an async function, pass `async: true` as an option.';
-			}
+            if (opts.filename) {
+                e.message += ' in ' + opts.filename;
+            }
+            e.message += ' while compiling ejs\n\n';
+            e.message += 'If the above error is not helpful, you may want to try EJS-Lint:\n';
+            e.message += 'https://github.com/RyanZim/EJS-Lint';
+            if (!opts.async) {
+                e.message += '\n';
+                e.message += 'Or, if you meant to create an async function, pass `async: true` as an option.';
+            }
         }
         throw e;
     }
@@ -311,11 +311,11 @@ Template.prototype = {
     // Adds a local `include` function which allows full recursive include
     var returnedFn = opts.client ? fn : function anonymous(data) {
         var include = function (path, includeData) {
-			var d = utils.shallowCopy(utils.createNullProtoObjWherePossible(), data);
-			if (includeData) {
-				d = utils.shallowCopy(d, includeData);
-			}
-			return includeFile(path, opts)(d);
+            var d = utils.shallowCopy(utils.createNullProtoObjWherePossible(), data);
+            if (includeData) {
+                d = utils.shallowCopy(d, includeData);
+            }
+            return includeFile(path, opts)(d);
         };
         return fn.apply(opts.context,
         [data || utils.createNullProtoObjWherePossible(), escapeFn, include, rethrow]);
@@ -324,12 +324,12 @@ Template.prototype = {
         var filename = opts.filename;
         var basename = path.basename(filename, path.extname(filename));
         try {
-			Object.defineProperty(returnedFn, 'name', {
-				value: basename,
-				writable: false,
-				enumerable: false,
-				configurable: true
-			});
+            Object.defineProperty(returnedFn, 'name', {
+                value: basename,
+                writable: false,
+                enumerable: false,
+                configurable: true
+            });
         } catch (e) {/* ignore */}
     }
     return returnedFn;
@@ -366,7 +366,7 @@ Template.prototype = {
             && line.indexOf(o + d + d) !== 0) { // and is not escaped
             closing = matches[index + 2];
             if (!(closing == d + c || closing == '-' + d + c || closing == '_' + d + c)) {
-            	throw new Error('Could not find matching close tag for "' + line + '".');
+                throw new Error('Could not find matching close tag for "' + line + '".');
             }
         }
         self.scanLine(line);
@@ -430,90 +430,90 @@ Template.prototype = {
     },
 
     scanLine: function (line) {
-		var self = this;
-		var d = this.opts.delimiter;
-		var o = this.opts.openDelimiter;
-		var c = this.opts.closeDelimiter;
-		var newLineCount = 0;
-	
-		newLineCount = (line.split('\n').length - 1);
-	
-		switch (line) {
-		case o + d:
-		case o + d + '_':
-			this.mode = Template.modes.EVAL;
-			break;
-		case o + d + '=':
-			this.mode = Template.modes.ESCAPED;
-			break;
-		case o + d + '-':
-			this.mode = Template.modes.RAW;
-			break;
-		case o + d + '#':
-			this.mode = Template.modes.COMMENT;
-			break;
-		case o + d + d:
-			this.mode = Template.modes.LITERAL;
-			this.source += '      ; __append("' + line.replace(o + d + d, o + d) + '")' + '\n';
-			break;
-		case d + d + c:
-			this.mode = Template.modes.LITERAL;
-			this.source += '      ; __append("' + line.replace(d + d + c, d + c) + '")' + '\n';
-			break;
-		case d + c:
-		case '-' + d + c:
-		case '_' + d + c:
-			if (this.mode == Template.modes.LITERAL) {
-				this._addOutput(line);
-			}
-	
-			this.mode = null;
-			this.truncate = line.indexOf('-') === 0 || line.indexOf('_') === 0;
-			break;
-		default:
-			// In script mode, depends on type of tag
-			if (this.mode) {
-				// If '//' is found without a line break, add a line break.
-				switch (this.mode) {
-					case Template.modes.EVAL:
-					case Template.modes.ESCAPED:
-					case Template.modes.RAW:
-					if (line.lastIndexOf('//') > line.lastIndexOf('\n')) {
-						line += '\n';
-					}
-				}
-				switch (this.mode) {
-					// Just executing code
-					case Template.modes.EVAL:
-						this.source += '      ; ' + line + '\n';
-						break;
-						// Exec, esc, and output
-					case Template.modes.ESCAPED:
-						this.source += '      ; __append(escapeFn(' + stripSemi(line) + '))' + '\n';
-						break;
-						// Exec and output
-					case Template.modes.RAW:
-						this.source += '      ; __append(' + stripSemi(line) + ')' + '\n';
-						break;
-					case Template.modes.COMMENT:
-						// Do nothing
-						break;
-						// Literal <%% mode, append as raw output
-					case Template.modes.LITERAL:
-						this._addOutput(line);
-						break;
-				}
-			}
-			// In string mode, just add the output
-			else {
-				this._addOutput(line);
-			}
-		}
-	
-		if (self.opts.compileDebug && newLineCount) {
-			this.currentLine += newLineCount;
-			this.source += '      ; __line = ' + this.currentLine + '\n';
-		}
+        var self = this;
+        var d = this.opts.delimiter;
+        var o = this.opts.openDelimiter;
+        var c = this.opts.closeDelimiter;
+        var newLineCount = 0;
+    
+        newLineCount = (line.split('\n').length - 1);
+    
+        switch (line) {
+        case o + d:
+        case o + d + '_':
+            this.mode = Template.modes.EVAL;
+            break;
+        case o + d + '=':
+            this.mode = Template.modes.ESCAPED;
+            break;
+        case o + d + '-':
+            this.mode = Template.modes.RAW;
+            break;
+        case o + d + '#':
+            this.mode = Template.modes.COMMENT;
+            break;
+        case o + d + d:
+            this.mode = Template.modes.LITERAL;
+            this.source += '      ; __append("' + line.replace(o + d + d, o + d) + '")' + '\n';
+            break;
+        case d + d + c:
+            this.mode = Template.modes.LITERAL;
+            this.source += '      ; __append("' + line.replace(d + d + c, d + c) + '")' + '\n';
+            break;
+        case d + c:
+        case '-' + d + c:
+        case '_' + d + c:
+            if (this.mode == Template.modes.LITERAL) {
+                this._addOutput(line);
+            }
+    
+            this.mode = null;
+            this.truncate = line.indexOf('-') === 0 || line.indexOf('_') === 0;
+            break;
+        default:
+            // In script mode, depends on type of tag
+            if (this.mode) {
+                // If '//' is found without a line break, add a line break.
+                switch (this.mode) {
+                    case Template.modes.EVAL:
+                    case Template.modes.ESCAPED:
+                    case Template.modes.RAW:
+                    if (line.lastIndexOf('//') > line.lastIndexOf('\n')) {
+                        line += '\n';
+                    }
+                }
+                switch (this.mode) {
+                    // Just executing code
+                    case Template.modes.EVAL:
+                        this.source += '      ; ' + line + '\n';
+                        break;
+                        // Exec, esc, and output
+                    case Template.modes.ESCAPED:
+                        this.source += '      ; __append(escapeFn(' + stripSemi(line) + '))' + '\n';
+                        break;
+                        // Exec and output
+                    case Template.modes.RAW:
+                        this.source += '      ; __append(' + stripSemi(line) + ')' + '\n';
+                        break;
+                    case Template.modes.COMMENT:
+                        // Do nothing
+                        break;
+                        // Literal <%% mode, append as raw output
+                    case Template.modes.LITERAL:
+                        this._addOutput(line);
+                        break;
+                }
+            }
+            // In string mode, just add the output
+            else {
+                this._addOutput(line);
+            }
+        }
+    
+        if (self.opts.compileDebug && newLineCount) {
+            this.currentLine += newLineCount;
+            this.source += '      ; __line = ' + this.currentLine + '\n';
+        }
     }
 };
 ```
@@ -541,31 +541,31 @@ Template.prototype = {
         '  var __output = "";\n' +
         '  function __append(s) { if (s !== undefined && s !== null) __output += s }\n';
         if (opts.outputFunctionName) {
-			if (!_JS_IDENTIFIER.test(opts.outputFunctionName)) {
-				throw new Error('outputFunctionName is not a valid JS identifier.');
-			}
-			prepended += '  var ' + opts.outputFunctionName + ' = __append;' + '\n';
+            if (!_JS_IDENTIFIER.test(opts.outputFunctionName)) {
+                throw new Error('outputFunctionName is not a valid JS identifier.');
+            }
+            prepended += '  var ' + opts.outputFunctionName + ' = __append;' + '\n';
         }
         if (opts.localsName && !_JS_IDENTIFIER.test(opts.localsName)) {
-        	throw new Error('localsName is not a valid JS identifier.');
+            throw new Error('localsName is not a valid JS identifier.');
         }
         if (opts.destructuredLocals && opts.destructuredLocals.length) {
-			var destructuring = '  var __locals = (' + opts.localsName + ' || {}),\n';
-			for (var i = 0; i < opts.destructuredLocals.length; i++) {
-				var name = opts.destructuredLocals[i];
-				if (!_JS_IDENTIFIER.test(name)) {
-					throw new Error('destructuredLocals[' + i + '] is not a valid JS identifier.');
-				}
-				if (i > 0) {
-					destructuring += ',\n  ';
-				}
-				destructuring += name + ' = __locals.' + name;
-			}
-			prepended += destructuring + ';\n';
+            var destructuring = '  var __locals = (' + opts.localsName + ' || {}),\n';
+            for (var i = 0; i < opts.destructuredLocals.length; i++) {
+                var name = opts.destructuredLocals[i];
+                if (!_JS_IDENTIFIER.test(name)) {
+                    throw new Error('destructuredLocals[' + i + '] is not a valid JS identifier.');
+                }
+                if (i > 0) {
+                    destructuring += ',\n  ';
+                }
+                destructuring += name + ' = __locals.' + name;
+            }
+            prepended += destructuring + ';\n';
         }
         if (opts._with !== false) {
-			prepended +=  '  with (' + opts.localsName + ' || {}) {' + '\n';
-			appended += '  }' + '\n';
+            prepended +=  '  with (' + opts.localsName + ' || {}) {' + '\n';
+            appended += '  }' + '\n';
         }
         appended += '  return __output;' + '\n';
         this.source = prepended + this.source + appended;
@@ -588,7 +588,7 @@ Template.prototype = {
     if (opts.client) {
         src = 'escapeFn = escapeFn || ' + escapeFn.toString() + ';' + '\n' + src;
         if (opts.compileDebug) {
-        	src = 'rethrow = rethrow || ' + rethrow.toString() + ';' + '\n' + src;
+            src = 'rethrow = rethrow || ' + rethrow.toString() + ';' + '\n' + src;
         }
     }
 
@@ -605,38 +605,38 @@ Template.prototype = {
 
     try {
         if (opts.async) {
-			// Have to use generated function for this, since in envs without support,
-			// it breaks in parsing
-			try {
-				ctor = (new Function('return (async function(){}).constructor;'))();
-			}
-			catch(e) {
-				if (e instanceof SyntaxError) {
-					throw new Error('This environment does not support async/await');
-				}
-				else {
-					throw e;
-				}
-			}
+            // Have to use generated function for this, since in envs without support,
+            // it breaks in parsing
+            try {
+                ctor = (new Function('return (async function(){}).constructor;'))();
+            }
+            catch(e) {
+                if (e instanceof SyntaxError) {
+                    throw new Error('This environment does not support async/await');
+                }
+                else {
+                    throw e;
+                }
+            }
         }
         else {
-        	ctor = Function;
+            ctor = Function;
         }
         fn = new ctor(opts.localsName + ', escapeFn, include, rethrow', src);
     }
     catch(e) {
         // istanbul ignore else
         if (e instanceof SyntaxError) {
-			if (opts.filename) {
-				e.message += ' in ' + opts.filename;
-			}
-			e.message += ' while compiling ejs\n\n';
-			e.message += 'If the above error is not helpful, you may want to try EJS-Lint:\n';
-			e.message += 'https://github.com/RyanZim/EJS-Lint';
-			if (!opts.async) {
-				e.message += '\n';
-				e.message += 'Or, if you meant to create an async function, pass `async: true` as an option.';
-			}
+            if (opts.filename) {
+                e.message += ' in ' + opts.filename;
+            }
+            e.message += ' while compiling ejs\n\n';
+            e.message += 'If the above error is not helpful, you may want to try EJS-Lint:\n';
+            e.message += 'https://github.com/RyanZim/EJS-Lint';
+            if (!opts.async) {
+                e.message += '\n';
+                e.message += 'Or, if you meant to create an async function, pass `async: true` as an option.';
+            }
         }
         throw e;
     }
@@ -646,11 +646,11 @@ Template.prototype = {
     // Adds a local `include` function which allows full recursive include
     var returnedFn = opts.client ? fn : function anonymous(data) {
         var include = function (path, includeData) {
-			var d = utils.shallowCopy(utils.createNullProtoObjWherePossible(), data);
-			if (includeData) {
-				d = utils.shallowCopy(d, includeData);
-			}
-			return includeFile(path, opts)(d);
+            var d = utils.shallowCopy(utils.createNullProtoObjWherePossible(), data);
+            if (includeData) {
+                d = utils.shallowCopy(d, includeData);
+            }
+            return includeFile(path, opts)(d);
         };
         return fn.apply(opts.context,
         [data || utils.createNullProtoObjWherePossible(), escapeFn, include, rethrow]);
@@ -659,12 +659,12 @@ Template.prototype = {
         var filename = opts.filename;
         var basename = path.basename(filename, path.extname(filename));
         try {
-			Object.defineProperty(returnedFn, 'name', {
-				value: basename,
-				writable: false,
-				enumerable: false,
-				configurable: true
-			});
+            Object.defineProperty(returnedFn, 'name', {
+                value: basename,
+                writable: false,
+                enumerable: false,
+                configurable: true
+            });
         } catch (e) {/* ignore */}
     }
     return returnedFn;
@@ -739,7 +739,7 @@ Template.prototype = {
 
     •••
     if (opts.client) {
-		src = 'escapeFn = escapeFn || ' + escapeFn.toString() + ';' + '\n' + src;
+        src = 'escapeFn = escapeFn || ' + escapeFn.toString() + ';' + '\n' + src;
         if (opts.compileDebug) {
         src = 'rethrow = rethrow || ' + rethrow.toString() + ';' + '\n' + src;
         }
