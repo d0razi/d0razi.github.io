@@ -18,24 +18,24 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get("/", (req, res) => {
-    res.render("index");
+	res.render("index");
 })
 
 app.get("/vuln", (req, res) => {
-    // simulate SSPP vulnerability
-    var a = req.query.a;
-    var b = req.query.b;
-    var c = req.query.c;
+	// simulate SSPP vulnerability
+	var a = req.query.a;
+	var b = req.query.b;
+	var c = req.query.c;
 
-    var obj = {};
-    obj[a][b] = c; // Hack!!
+	var obj = {};
+	obj[a][b] = c; // Hack!!
 
-    res.send("OK!");
+	res.send("OK!");
 })
 
 // Start app
 app.listen(port, () => {
-    console.log(`App listening on port ${port}`)
+	console.log(`App listening on port ${port}`)
 })
 ```
 
