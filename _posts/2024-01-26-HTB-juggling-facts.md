@@ -88,7 +88,7 @@ class FactModel extends Model
 위 코드에서 `case 'secrets'` 부분을 보면 `get_facts('secrets)`를 볼 수 있습니다.
 
 관련된 취약점을 찾아보다가 switch case 느슨한 비교 취약점을 찾았습니다.
-https://lactea.kr/entry/%EB%B6%84%EC%84%9D%EC%9D%BC%EA%B8%B0-php-switch-case
+[[분석일기] - php switch case](https://lactea.kr/entry/%EB%B6%84%EC%84%9D%EC%9D%BC%EA%B8%B0-php-switch-case)
 
 아래와 같이 요청을 보내보니 플래그가 출력됐습니다.
 ```R
