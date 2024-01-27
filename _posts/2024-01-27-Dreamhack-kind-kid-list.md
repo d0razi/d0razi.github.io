@@ -219,6 +219,7 @@ exit(0);
 2. leak 한 password 를 이용해 v20에 "wyv3rn" 입력
 3. FSB를 이용해 dest 주소 Leak & 값 변조
 4. 3번 메뉴 실행
+
 ## password leak & Input wyv3rn
 디컴파일 코드에서 ptr의 위치를 알 수 있었습니다.
 ```c
