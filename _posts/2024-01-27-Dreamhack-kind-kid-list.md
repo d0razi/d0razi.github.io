@@ -68,7 +68,7 @@ int __fastcall __noreturn main(int argc, const char ** argv, const char ** envp)
         if (v22 <= 3) {
             if (v22 == 1) {
                 puts("\n-Kind kid list-");
-				
+                
                 for (i = 0; i <= 5; ++i)
                     puts( & v20[16 * i]);
                 puts("\n-Naughty kid list-");
@@ -79,7 +79,7 @@ int __fastcall __noreturn main(int argc, const char ** argv, const char ** envp)
             } 
             
             else if (v22 == 2) {
-	            printf("\nPassword : ");
+                printf("\nPassword : ");
                 fflush(stdout);
                 __isoc99_scanf("%8s", s2);
                 v3 = s2;
@@ -104,8 +104,8 @@ int __fastcall __noreturn main(int argc, const char ** argv, const char ** envp)
                     v4 = " is Wrong password!";
                     puts(" is Wrong password!");
                 }
-	        }
-		}
+            }
+        }
     }
     v25 = 0;
     v9 = "wyv3rn";
@@ -122,8 +122,8 @@ int __fastcall __noreturn main(int argc, const char ** argv, const char ** envp)
         flag("Wyv3rn : Here is flag!", v9, v10, v11, v12, v13);
         exit(0);
     }
-	puts("Wyv3rn : My name is not on the kind kid list!");
-	exit(0);
+    puts("Wyv3rn : My name is not on the kind kid list!");
+    exit(0);
 }
 ```
 
@@ -133,15 +133,15 @@ int __fastcall __noreturn main(int argc, const char ** argv, const char ** envp)
 
 ```c
 if (v22 == 1) {
-	puts("\n-Kind kid list-");
+    puts("\n-Kind kid list-");
 
-	for (i = 0; i <= 5; ++i)
-		puts( & v20[16 * i]);
-	puts("\n-Naughty kid list-");
-	for (i = 0; i <= 7; ++i)
-		putchar(dest[i]);
-	v4 = (char * ) & byte_2072;
-	puts( & byte_2072);
+    for (i = 0; i <= 5; ++i)
+        puts( & v20[16 * i]);
+    puts("\n-Naughty kid list-");
+    for (i = 0; i <= 7; ++i)
+        putchar(dest[i]);
+    v4 = (char * ) & byte_2072;
+    puts( & byte_2072);
 ```
 - v20의 0부터 5까지 인덱스의 원소를 출력합니다.
 - dest의 0부터 7까지 인덱스의 원소를 출력합니다.
@@ -151,41 +151,41 @@ if (v22 == 1) {
 
 ```c
 else if (v22 == 2) {
-	printf("\nPassword : ");
-	fflush(stdout);
-	__isoc99_scanf("%8s", s2);
-	v3 = s2;
-	if (!strncmp((const char * ) ptr, s2, 7 uLL)) {
-		printf("Name : ");
-		fflush(stdout);
-		v3 = v16;
-		__isoc99_scanf("%8s", v16);
-		if (v26 > 7) {
-			v4 = "Kind list full";
-			puts("Kind list full");
-		} 
-		
-		else {
-			v3 = v16;
-			v4 = & v20[16 * v26];
-			strcpy(v4, v16);
-			++v26;
-		}
-	}
-	
-	else {
-		printf(s2); // FSB occurs
-		v4 = " is Wrong password!";
-		puts(" is Wrong password!");
-	}
+    printf("\nPassword : ");
+    fflush(stdout);
+    __isoc99_scanf("%8s", s2);
+    v3 = s2;
+    if (!strncmp((const char * ) ptr, s2, 7 uLL)) {
+        printf("Name : ");
+        fflush(stdout);
+        v3 = v16;
+        __isoc99_scanf("%8s", v16);
+        if (v26 > 7) {
+            v4 = "Kind list full";
+            puts("Kind list full");
+        } 
+        
+        else {
+            v3 = v16;
+            v4 = & v20[16 * v26];
+            strcpy(v4, v16);
+            ++v26;
+        }
+    }
+    
+    else {
+        printf(s2); // FSB occurs
+        v4 = " is Wrong password!";
+        puts(" is Wrong password!");
+    }
 }
 ```
 
 - s2에 password를 입력받습니다.
 - strncmp 함수로 ptr과 s2를 비교합니다.
-	- 만약 두 인자가 같으면 v16에 Name을 입력받습니다.
-	- v26이 7보다 크면 "Kind list full" 이라는 문자열을 출력합니다. 
-	- 크지 않으면 v16에 저장된 값을 v20 배열의 v26번째 위치에 저장하고 v26값을 1 증가시킵니다.
+    - 만약 두 인자가 같으면 v16에 Name을 입력받습니다.
+    - v26이 7보다 크면 "Kind list full" 이라는 문자열을 출력합니다. 
+    - 크지 않으면 v16에 저장된 값을 v20 배열의 v26번째 위치에 저장하고 v26값을 1 증가시킵니다.
 - 같지 않으면 s2를 출력해주는데 여기서 FSB가 터집니다.
 - 그리고 "is Wrong password!" 라는 문자열을 출력해줍니다.
 ## 3번 메뉴
@@ -193,24 +193,24 @@ else if (v22 == 2) {
 v25 = 0;
 v9 = "wyv3rn";
 if (!strcmp(v20, "wyv3rn")) {
-	for (i = 0; i <= 5; ++i) {
-		v9 = & src[i];
-		if (!strcmp( & dest[i], v9)) {
-			puts("Wyv3rn : My name is still remain on the naughty kid list!");
-			exit(0);
-		}
-	}
-	puts("\nWyv3rn : You did it!");
-	puts("Wyv3rn : Here is flag!");
-	flag("Wyv3rn : Here is flag!", v9, v10, v11, v12, v13);
-	exit(0);
+    for (i = 0; i <= 5; ++i) {
+        v9 = & src[i];
+        if (!strcmp( & dest[i], v9)) {
+            puts("Wyv3rn : My name is still remain on the naughty kid list!");
+            exit(0);
+        }
+    }
+    puts("\nWyv3rn : You did it!");
+    puts("Wyv3rn : Here is flag!");
+    flag("Wyv3rn : Here is flag!", v9, v10, v11, v12, v13);
+    exit(0);
 }
 puts("Wyv3rn : My name is not on the kind kid list!");
 exit(0);
 ```
 - strcmp 함수로 2번 메뉴 Name에서 입력받는 v20이랑 wyv3rn 문자열을 비교합니다.
-	- 만약 두 변수가 같으면 for문을 돌면서 dest와 v9을 비교합니다. 만약 같으면 문자열을 출력하고 프로그램이 종료됩니다.
-	- 같지 않으면 플래그가 출력됩니다.
+    - 만약 두 변수가 같으면 for문을 돌면서 dest와 v9을 비교합니다. 만약 같으면 문자열을 출력하고 프로그램이 종료됩니다.
+    - 같지 않으면 플래그가 출력됩니다.
 - 다르면 그냥 종료됩니다.
 
 # 문제 풀이
