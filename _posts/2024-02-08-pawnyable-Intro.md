@@ -1,5 +1,5 @@
 ---
-title: "[Pawnyable] Kind kid list Write up"
+title: "[Pawnyable] Kernel Exploit에 대해"
 author: d0razi
 date: 2024-02-08 11:19
 categories: [InfoSec, Pwn]
@@ -19,7 +19,7 @@ image: /assets/img/media/banner/pawnyable_background.png
 리눅스 커널 내부 코드(syscall이나 file system)는 root 권한으로 동작하고 있기 때문에 커널 자체에 버그가 있는 경우 LPE로 연결될 가능성이 있습니다.
 다른 하나는 장치 드라이버 등의 커널 모듈에 포함된 취약점입니다. 디바이스 드라이버는 유저 공간에서 외부 기기(프린터, 키보드 등)와의 교환을 간단하게 하기 위한 인터페이스입니다. 디바이스 드라이버도 root 권한으로 동작하기 때문에 버그가 있을 경우 LPE로 연결됩니다.
 
-> 파일 시스템이나 Character module은 보통 커널 모듈에서 구현되지만 FUSE, CUSE 같은 기능이 등장하면서 유저 공간에서도 구현할 수 있게 되었습니다.
+>>> 파일 시스템이나 Character module은 보통 커널 모듈에서 구현되지만 FUSE, CUSE 같은 기능이 등장하면서 유저 공간에서도 구현할 수 있게 되었습니다.
 ## 공격 방법
 유저영역 exploit의 경우 일반적으로 공격 대상 서비스에 입력을 주는 것으로 exploit을 합니다. 그렇기 때문에 Python 등의 언어로 exploit 코드를 작성합니다.
 한편, 커널 exploit의 경우는 대상이 OS 혹은 드라이버이빈다. 이러한 작업은 로우 레벨 작업이기 때문에 C언어를 사용하여 exploit을 작성하는 것이 주류입니다. 물론 Python 등에서도 쓸 수 있지만, 공격 대상 머신(특히 CTF나 실험 환경에서 준비되는 작은 Linux) 위에 Python이 존재하는 경우가 적습니다.
