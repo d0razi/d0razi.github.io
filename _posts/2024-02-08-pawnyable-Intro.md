@@ -85,4 +85,4 @@ $ find . -print0 | cpio -o --format=newc --null --owner=root > ../rootfs_updated
 > 연습문제 LK01 파일을 다운로드한 후 아래 작업을 수행해보세요.
 > 1. `run.sh`을 실행해서 리눅스가 제대로 작동하는지 확인해보세요.
 > 2. 부팅 시 쉘이 root 권한으로 실행되도록 `rootfs.cpio` 파일을 수정해보세요(힌트 : 부팅 시 메시지를 표시하는 스크립트를 찾아보세요). 
-{: .prompt-main}
+{: .prompt-info}
