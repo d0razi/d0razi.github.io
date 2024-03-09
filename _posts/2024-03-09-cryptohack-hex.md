@@ -7,8 +7,6 @@ tags: [Cryptohack]
 image: /assets/img/media/banner/cryptohack.png
 ---
 
-# Hex
-
 # 문제
 
 우리가 암호화할 때, 결과적인 암호문은 일반적으로 출력 가능한 ASCII 문자가 아닌 바이트로 되어있습니다. 암호화된 데이터를 공유하려면 암호화된 데이터를 사용하기 쉽고 휴대하기 쉬운 것으로 인코딩하는 것이 일반적입니다.

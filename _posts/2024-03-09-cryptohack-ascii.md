@@ -7,8 +7,6 @@ tags: [Cryptohack]
 image: /assets/img/media/banner/cryptohack.png
 ---
 
-# ASCII
-
 # 문제
 
 ASCII는 0-127 정수를 사용하여 텍스트를 표현할 수 있는 7비트 인코딩 표준입니다.
