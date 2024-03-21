@@ -7,9 +7,6 @@ tags: [Cryptohack, Intro]
 image: /assets/img/media/banner/cryptohack.png
 ---
 
-
-[CryptoHack – Introduction to CryptoHack - Bytes and Big Integers](https://cryptohack.org/courses/intro/enc4/)
-
 RSA와 같은 암호 시스템은 숫자로 작동하지만 메세지는 문자로 구성된다. 우리가 어떻게 수학적 연산이 적용되도록 메세지를 숫자로 변환해야 할까?
 
 가장 일반적인 방법은 메세지의 ordinal(서수) 바이트를 가져와 16진수로 변환하고 연결하는 것이다. 이는 base-16/hexadecimal number로 해석될 수 있으며, base-10/decimal로 표현할 수 있다.
