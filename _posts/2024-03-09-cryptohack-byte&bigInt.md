@@ -3,7 +3,7 @@ title: "[Cryptohack] Bytes and Big Integers"
 author: d0razi
 date: 2024-03-09 21:30
 categories: [InfoSec, Crypto]
-tags: [Cryptohack]
+tags: [Cryptohack, Intro]
 image: /assets/img/media/banner/cryptohack.png
 ---
 

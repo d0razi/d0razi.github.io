@@ -3,7 +3,7 @@ title: "[Cryptohack] Base64"
 author: d0razi
 date: 2024-03-09 21:28
 categories: [InfoSec, Crypto]
-tags: [Cryptohack]
+tags: [Cryptohack, Intro]
 image: /assets/img/media/banner/cryptohack.png
 ---
 
