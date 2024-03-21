@@ -6,6 +6,7 @@ categories: [InfoSec, Crypto]
 tags: [Cryptohack, Intro]
 image: /assets/img/media/banner/cryptohack.png
 ---
+# 문제 
 
 XOR은 비트가 같으면 0을 반환하고 그렇지 않으면 1을 반하는 비트 연산자이다.
 
@@ -20,7 +21,7 @@ XOR은 비트가 같으면 0을 반환하고 그렇지 않으면 1을 반하는 
 # 풀이
 
 ```python
-fin_flag = "cypress{"
+fin_flag = "crypto{"
 flag = b"label"
 
 for i in flag:

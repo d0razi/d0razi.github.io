@@ -6,6 +6,7 @@ categories: [InfoSec, Crypto]
 tags: [Cryptohack, Intro]
 image: /assets/img/media/banner/cryptohack.png
 ---
+# 문제 
 
 RSA와 같은 암호 시스템은 숫자로 작동하지만 메세지는 문자로 구성된다. 우리가 어떻게 수학적 연산이 적용되도록 메세지를 숫자로 변환해야 할까?
 
