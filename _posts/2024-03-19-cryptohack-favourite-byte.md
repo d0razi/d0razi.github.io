@@ -1,7 +1,7 @@
 ---
 title: "[Cryptohack] Favourite Byte"
 author: d0razi
-date: 2024-03-09 21:22
+date: 2024-03-19 21:22
 categories: [InfoSec, Crypto]
 tags: [Cryptohack, Intro]
 image: /assets/img/media/banner/cryptohack.png
