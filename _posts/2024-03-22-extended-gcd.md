@@ -1,7 +1,7 @@
 ---
 title: "확장된 유클리드 알고리즘"
 author: d0razi
-date: 2023-03-22 10:51
+date: 2024-03-22 10:51
 categories: [InfoSec, Crypto]
 tags: [python]
 image: /assets/img/media/banner/Crypto.jpg
