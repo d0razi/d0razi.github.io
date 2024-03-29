@@ -14,7 +14,7 @@ image: /assets/img/media/banner/Crypto.jpg
 
 확장 유클리드 알고리즘은 a * s + b * t = GCD(a, b)를 만족하게 하는 정수 s, t를 구하는 알고리즘이다.
 
-![그림](https://imgur.com/crXQUuW)
+![그림](https://i.imgur.com/crXQUuW.png)
 
 초기 값은 **`s1, s2 = 1, 0`** **`t1, t2 = 0, 1`** 로 세팅해줍니다.
 

@@ -21,10 +21,9 @@ image: /assets/img/media/banner/cryptohack.png
 > : a×1=a  
 {: .prompt-info}
 
-![Untitled](https://imgur.com/Q9UTdJX)
-
+![Image](https://i.imgur.com/0vwEvdU.png)
 # 풀이
 
-![Untitled](https://imgur.com/4XPaMxx)
+![Untitled](https://imgur.com/4XPaMxx.png)
 
 `print(273246787654 ** 65536 % 65537)`
