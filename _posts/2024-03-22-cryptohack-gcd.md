@@ -4,8 +4,8 @@ author: d0razi
 date: 2024-03-22 10:47
 categories: [InfoSec, Crypto]
 tags: [Cryptohack, MODULAR ARITHMETIC]
-image: /assets/img/media/banner/cryptohack.pn
-use_math: trueg
+image: /assets/img/media/banner/cryptohack.png
+use_math: true
 ---
 
 # 개념
