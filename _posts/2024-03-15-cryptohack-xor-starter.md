@@ -5,6 +5,7 @@ date: 2024-03-15 22:22
 categories: [InfoSec, Crypto]
 tags: [Cryptohack, Intro]
 image: /assets/img/media/banner/cryptohack.png
+use_math: true
 ---
 # 문제 
 

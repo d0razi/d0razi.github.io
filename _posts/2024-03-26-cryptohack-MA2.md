@@ -5,6 +5,7 @@ date: 2024-03-26 14:43
 categories: [InfoSec, Crypto]
 tags: [Cryptohack, MODULAR ARITHMETIC]
 image: /assets/img/media/banner/cryptohack.png
+use_math: true
 ---
 
 # 문제
