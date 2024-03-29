@@ -189,3 +189,10 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+ # Conversion
+ markdown: kramdown
+ highlighter: rouge
+ lsi: false
+ excerpt_separator: "\n\n"
+ incremental: false
