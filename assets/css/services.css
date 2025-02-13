@@ -1,0 +1,47 @@
+.service-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.service-icon {
+  width: 50px;
+  height: 50px;
+  background-color:#69db7c; /* 아이콘 배경색 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+.service-icon img {
+  width: 30px; /* 아이콘 크기 */
+  height: 30px;
+}
+.service-content {
+  flex: 1;
+}
+.service-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.service-list {
+  margin: 5px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+.service-list li {
+  margin-bottom: 5px;
+}
+
+.about-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* 화면 전체 높이 */
+  padding: 20px;
+}
+.about-content {
+  max-width: 800px;
+  /* text-align: center; 텍스트 가운데 정렬 */
+  padding: 20px;
+}

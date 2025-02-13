@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<main>
+    <div class="block">
+        <p>404</p>
+        <p>Page not found</p>
+    </div>
+    <div class="block">
+        {% assign home = "https://d0razi.site" | split: "//" | slice: 1 %}
+        <a href="http://d0razi.site">{{ home }}</a>
+    </div>
+</main>

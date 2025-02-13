@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<div class="block">
+  <div class="about-page">
+    <div class="about-content">
+      <h1>{{ page.title }}</h1>
+      <p>{{ page.date | date_to_string }}  {{ page.author }}</p>
+    
+      {{ content }}
+
+      <a href="http://d0razi.site">home</a>
+    </div>
+  </div>
+</div>

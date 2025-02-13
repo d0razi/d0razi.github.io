@@ -1,0 +1,46 @@
+# this is only for search engines, it does not appear in the home
+# as long as the json variables name and description are provided
+title: d0razi's Web
+baseurl: ""
+url: https://d0razi.site
+
+repository: false
+github: false
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# this information is shown on the homepage, all fields are optional and
+# can be declared either as a single string or as a string array/hash
+json:
+  name: Yoo Sungmo(a.k.a d0razi)
+  description:
+    - Vulnerability Researcher
+  contact:
+    email: d0razi@icloud.com
+  profiles:
+    about: /me
+  link:
+    github: https://github.com/d0razi
+    blog: https://blog.d0razi.site
+    ctf: https://ctf.d0razi.site
+
+
+exclude:
+  - LICENSE
+  - README.md
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  # - jekyll-feed
+  - jekyll-redirect-from
+
+whitelist:
+  - jekyll-sitemap
+
+sass:
+  sass_dir: _sass
+  style: compressed
+  sourcemap: never
