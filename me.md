@@ -8,11 +8,11 @@ date: 2003-10-17
 
 {% include services.html %}
 
-# 수상 내역
+# Awards
 [2023.11.10]
 - ABB Hackathon CTF 2등 최우수상
 
-# 발표
+# Presentations
 [2024.11]
 - 영남이공대 x 경북대 1회 연합 세미나 : Stack Pivoting 기법 소개
 > Stack Pivoting 기법 이론 설명 후 해당 기법을 이용한 CTF 문제 풀이
@@ -33,19 +33,19 @@ date: 2003-10-17
 - YESS 동아리 내부 세미나 : Buffer Over Flow 취약점 입문하기
 > BOF 취약점 주제로 발표
 
-# 활동 내역
-## 운영
+# Activities
+## Leadership
 - 영남이공대 사이버보안과 전공 동아리 YESS 회장 - [2024.02 ~ 2025.02]
 - 영남이공대 사이버보안과 전공 동아리 YESS 운영진 - [2022.02 ~ 2023.02]
 
-## 교육 수료
+## Training & Certifications
 - 제 30회 동계 해킹캠프 수료 - [2025.02.16]
 - 파인더갭 버그헌팅 실습 팀플레이 고급 과정 - [2025.02.14]
 - Architecting on AWS - [2024.10.26]
 - 스틸리언 현장실습 교육 - [2024.02.08]
 - KISEC 악성코드 분석 실무 - [2023.02.27]
 
-## 문제 출제
+## CTF Challenge Authoring & Event Management
 - 시원포럼 절평 CTF 문제 출제 - [2025.02.10]
 - 9회 Y.CTF 운영 및 문제 출제 [Link](https://www.newsfreezone.co.kr/news/articleView.html?idxno=594638) - [2024.11.05]
 - 영남이공대 x 경북대 연합 CTF 문제 출제 - [2023]
