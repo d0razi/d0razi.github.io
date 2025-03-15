@@ -2,111 +2,91 @@
 layout: default
 ---
 
-<article>
-  {%- include header.html -%}
-   
-    
-
-
-
-
-
-  <div class="container">
-    <div class="right">
-      <h2>Education</h2>
-      <div>
-        <ul style="list-style: none;padding: 0;">
-          <li>
-            <dl>
-              <dt>Visva Bharati, Shantiniketan</dt>
-              <dd>Bachelor of Science in Statistics</dd>
-              <dd>2020 - 2023</dd>
-              <dd>Grade: A+</dd>
-            </dl>          
-          </li>
-          <li>
-            <dl>
-              <dt>Visva Bharati, Shantiniketan</dt>
-              <dd>Master of Science in Statistics</dd>
-              <dd>2023 - Present</dd>
-            </dl> 
-          </li>
-        </ul>
-      </div>
-
-      <h2>Skills</h2>
-      <div>
-        <h4>Programming language</h4>
-        <ul>
-          <li>Python (Programming Language)</li>
-          <li>R (Programming Language)</li>
-          <li>C Programming</li>
-          <li>PHP (HTML, CSS)</li>
-        </ul>
-        <h4>Tools</h4>
-        <ul>
-          <li>Microsoft Excel</li>
-          <li>Latex (MikText,Mathjs,Overleaf)</li>
-          <li>R Studio</li>
-          <li title="A Next-Generation Notebook Interface">JupyterLab</li>
-        </ul>
-        <h2>Interests</h2>
-        <p><span>Sci-fi movies</span> &bull; <span>Web development</span> &bull; <span>Mobile photography</span></p>
-      </div>
+<main class="json">
+  <div class="block">
+    {% if site.json.name %}
+    <p><span class="key">name</span><span class="attr">{{ site.json.name }}</span></p>
+    {% else %}
+    <p><span class="key">name</span><span class="attr">{{ site.title }}</span></p>
+    {% endif %}
+    {% if site.json.description %}
+    {% if site.json.description.first %}
+    <div id="typed-strings">
+      {% for i in site.json.description %}
+      <span>{{ i | prepend: '"' | append: '",'}}</span>
+      {% endfor %}
     </div>
-    <div class="left">
-      <h2>Projects</h2>
-      <div  id="projects">
-        <ul>
-          <li><a href="https://github.com/mrinalcs/india-literacy">A look at literacy in India using R , descriptive statistics , analysis on literacy rate , census 2011.</a></li>
-          <li><a href="https://github.com/mrinalcs/body-performance">Statistical analysis on body performance , Basic analysis on different factors and classes.</a></li>
-          <li><a href="https://github.com/mrinalcs/wp-stat">A website with file-based content management and an admin panel for simple updates, without database. (PHP)</a></li>
-          <li><a href="https://www.overleaf.com/project/638dfef793e6c90ff7265cbd">Linear model Latex writtings (Overleaf)</a></li>
-          <li><a href="https://github.com/mrinalcs/vbstat">Handouts and Notes BSc Statistics VisvaBharati along with dynamic listing and template (Jekyll,Bootstrap)</a></li>
-        </ul>
-        
-      </div>
-    </div>
+    <p><span class="key">description</span>{% include typed.html %}</p>
+    {% else %}
+    <p><span class="key">description</span><span class="attr">{{ site.json.description }}</span></p>
+    {% endif %}
+    {% else %}
+    <p><span class="key">description</span><span class="attr">{{ site.description }}</span></p>
+    {% endif %}
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-    
-
-  
-    
-
-  
-    <div>
-      <h2>Language</h2>
-      <div>
-          <span title="First language">বাংলা (Bengali)</span>,
-          <span>English</span>, 
-          <span>हिंदी (Hindi)</span>
-      </div>
+  <div class="block">
+    {% if site.json.cv %}
+    {% assign cv = site.json.cv | split: "/" | slice: -1 %}
+    <p><span class="key">cv</span><span class="attr"><a href="{{ site.json.cv }}" target="_blank">{{ cv }}</a></span></p>
+    {% endif %}
+  </div>
+  <div class="block">
+    {% if site.json.address %}
+    {% if site.json.address.first %}
+    <p><span class="array-key">address</span></p>
+    <div class="array">
+      {% for i in site.json.address %}
+      <p class="array-attr">{{ i }}</p>
+      {% endfor %}
     </div>
-
-    {%- include footer.html -%}
-  </article>
-  
-
-
-
-
-
- 
-
- 
+    {% else %}
+    <p><span class="key">address</span><span class="attr">{{ site.json.address }}</span></p>
+    {% endif %}
+    {% endif %}
+  </div>
+  <div class="block">
+    {% if site.json.contact %}
+    {% if site.json.contact.first %}
+    <p><span class="list-key">contact</span></p>
+    <div class="list">
+      {% for i in site.json.contact %}
+      <p><span class="list-subkey">{{ i | slice: 0 }}</span><span class="list-attr">{{ i | slice: 1 }}</span></p>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p><span class="key">contact</span><span class="attr">{{ site.json.contact }}</span></p>
+    {% endif %}
+    {% endif %}
+  </div>
+  <div class="block">
+    {% if site.json.demo %}
+    {% assign demo = site.json.demo | split: "//" | slice: 1 %}
+    <p><span class="key">demo</span><span class="attr"><a href="{{ site.json.demo }}" target="_blank">{{ demo }}</a></span></p>
+    {% endif %}
+    {% if site.json.source %}
+    {% assign source = site.json.source | split: "github.com/" | slice: 1 %}
+    <p><span class="key">source</span><span class="attr"><a href="{{ site.json.source }}" target="_blank">{{ source }}</a></span></p>
+    {% endif %}
+  </div>
+  <div class="block">
+    {% if site.json.profiles %}
+    <span class="array-key">profiles</span>
+    <div class="array">
+      {% for i in site.json.profiles %}
+      <p class="array-attr"><a href="{{ i | slice: 1 }}" target="">{{ i | slice: 0 }}</a></p>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="block">
+    {% if site.json.link %}
+    <span class="list-key">Links</span>
+    <div class="list">
+      {% for key in site.json.link %}
+        <p><span class="list-subkey">{{ key[0] }}</span>
+        <span class="list-attr"><a href="{{ key[1] }}" target="_blank">{{ key[1] }}</a></span></p>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</main>
